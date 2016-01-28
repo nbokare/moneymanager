@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
+
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.1.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+           ">
+
+    <!-- <import resource="proton-web-security.xml"/> -->
+
+    <!-- Enable AspectJ -->
+<!--     <aop:aspectj-autoproxy /> -->
+
+<!--     <context:annotation-config /> -->
+
+<!--     <context:spring-configured /> -->
+
+
+<!--     <context:component-scan base-package="com.nbokare.moneymanager"> -->
+<!--         <context:exclude-filter type="annotation" -->
+<!--             expression="org.springframework.stereotype.Controller" /> -->
+<!--     </context:component-scan> -->
+
+    <!-- <import resource="persistence-config.xml" /> -->
+
+    <!-- Container for application specific properties. If application has to override common property, 
+        property should be put into this file -->
+    <!-- <context:property-placeholder location="classpath:application-override.properties" order="-1" -->
+    <!-- ignore-unresolvable="true" ignore-resource-not-found="true" /> -->
+
+    <!-- -->
+<!--     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> -->
+<!--         <property name="driverClassName" value="org.postgresql.Driver" /> -->
+<!--         <property name="url" value="jdbc:postgresql://127.0.0.1:5432/postgres" /> -->
+<!--         <property name="username" value="test_user" /> -->
+<!--         <property name="password" value="password" /> -->
+<!--     </bean> -->
+
+<!--     Hibernate 4 SessionFactory Bean definition -->
+<!--     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> -->
+<!--         <property name="dataSource" ref="dataSource" /> -->
+<!--         <property name="annotatedClasses"> -->
+<!--             <list> -->
+<!--                 <value>com.nbokare.moneymanager.model.TestPerson</value> -->
+<!--             </list> -->
+<!--         </property> -->
+<!--         <property name="hibernateProperties"> -->
+<!--             <props> -->
+<!--                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect -->
+<!--                 </prop> -->
+<!--                 <prop key="hibernate.show_sql">true</prop> -->
+<!--             </props> -->
+<!--         </property> -->
+<!--     </bean> -->
+
+</beans>
