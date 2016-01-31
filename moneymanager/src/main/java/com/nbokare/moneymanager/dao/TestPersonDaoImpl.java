@@ -62,4 +62,9 @@ public class TestPersonDaoImpl {
         return (TestPerson) sessionFactory.getCurrentSession().get(
                 TestPerson.class, id);
     }
+
+    @Transactional
+    public void save(TestPerson person) {
+        sessionFactory.getCurrentSession().save(person);
+    }
 }

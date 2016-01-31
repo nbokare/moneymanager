@@ -21,6 +21,15 @@ public class TestService {
                 .println("**************************** service initialized *************************************");
     }
 
+    public TestPerson create(TestPerson person) {
+        System.out.println("Creating person : " + person);
+        int id = person.getId();
+        dao.save(person);
+
+        return dao.getPerson(id);
+        // return dao.getPerson(id);
+    }
+
     public List<TestPerson> getPersons() {
         System.out
                 .println("******************** In service - Fetching persons.");
