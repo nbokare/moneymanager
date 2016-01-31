@@ -52,4 +52,14 @@ public class TestPersonDaoImpl {
         return list;
         // return null;
     }
+
+    @Transactional
+    public TestPerson getPerson(int id) {
+
+        // List persons = sessionFactoryBean.getObject().getCurrentSession()
+        // .createQuery("from TestPerson").list();
+
+        return (TestPerson) sessionFactory.getCurrentSession().get(
+                TestPerson.class, id);
+    }
 }

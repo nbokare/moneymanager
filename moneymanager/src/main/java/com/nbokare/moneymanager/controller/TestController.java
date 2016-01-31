@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,24 +31,24 @@ public class TestController {
                 + System.getProperties());
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET, path = "/persons/{id}")
     @ResponseBody
-    public TestPerson get() {
+    public TestPerson get(@PathVariable int id) {
         System.out.println("******************** in get **************");
-        return new TestPerson("Nikhil", 1);
+        return testService.getPerson(id);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/persons")
+    @RequestMapping(method = RequestMethod.GET, path = "/persons")
     @ResponseBody
     public List<TestPerson> list() {
         System.out.println("******************** in list **************");
         return testService.getPersons();
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/getstring")
-    @ResponseBody
-    public String testing() {
-        System.out.println("******************** in testing **************");
-        return "{name:Nikhil,id:1}";
-    }
+    // @RequestMapping(method = RequestMethod.GET, value = "/getstring")
+    // @ResponseBody
+    // public String testing() {
+    // System.out.println("******************** in testing **************");
+    // return "{name:Nikhil,id:1}";
+    // }
 }

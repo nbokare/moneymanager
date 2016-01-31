@@ -27,4 +27,15 @@ public class TestService {
         return dao.getPersons();
         // return null;
     }
+
+    public TestPerson getPerson(int id) {
+        TestPerson person = dao.getPerson(id);
+
+        if (person == null) {
+            System.out.println("Invalid ID " + id);
+            return null;
+        } else {
+            return person;
+        }
+    }
 }
