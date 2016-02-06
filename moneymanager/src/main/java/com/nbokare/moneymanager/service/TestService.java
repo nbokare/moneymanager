@@ -30,6 +30,26 @@ public class TestService {
         // return dao.getPerson(id);
     }
 
+    public TestPerson update(TestPerson person) {
+        if (person == null) {
+            System.out.println("null person passed to update");
+            return null;
+        }
+
+        int id = person.getId();
+        System.out.println("Updating person : " + id);
+        TestPerson existingPerson = dao.getPerson(id);
+
+        if (existingPerson == null) {
+            System.out.println("Person with ID " + id + " does not exist.");
+            return null;
+        }
+        dao.update(person);
+
+        return dao.getPerson(id);
+        // return dao.getPerson(id);
+    }
+
     public List<TestPerson> getPersons() {
         System.out
                 .println("******************** In service - Fetching persons.");

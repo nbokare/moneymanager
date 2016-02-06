@@ -67,4 +67,9 @@ public class TestPersonDaoImpl {
     public void save(TestPerson person) {
         sessionFactory.getCurrentSession().save(person);
     }
+
+    @Transactional
+    public void update(TestPerson person) {
+        sessionFactory.getCurrentSession().update(person);
+    }
 }

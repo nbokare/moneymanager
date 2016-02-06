@@ -53,6 +53,13 @@ public class TestController {
         return testService.create(person);
     }
 
+    @RequestMapping(method = RequestMethod.PUT, path = "/persons/{id}")
+    @ResponseBody
+    public TestPerson update(@RequestBody TestPerson person) {
+        System.out.println("******************** in update **************");
+        return testService.update(person);
+    }
+
     // @RequestMapping(method = RequestMethod.GET, value = "/getstring")
     // @ResponseBody
     // public String testing() {
