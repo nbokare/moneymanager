@@ -1,5 +1,6 @@
 package com.nbokare.moneymanager.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -7,7 +8,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "person")
 public class Person {
-    String name;
+    @Column(name = "first_name")
+    String firstName;
+
+    @Column(name = "last_name")
+    String lastName;
 
     @Id
     int id;
@@ -16,17 +21,25 @@ public class Person {
 
     }
 
-    public Person(String name, int id) {
-        this.name = name;
-        this.id = id;
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public int getId() {
@@ -39,7 +52,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "TestPerson [name=" + name + ", id=" + id + "]";
+        return "TestPerson [name=" + firstName + ", id=" + id + "]";
     }
 
 }
