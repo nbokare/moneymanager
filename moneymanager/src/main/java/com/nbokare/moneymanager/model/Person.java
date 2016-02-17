@@ -6,17 +6,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "person")
-public class TestPerson {
+public class Person {
     String name;
 
     @Id
     int id;
 
-    public TestPerson() {
+    public Person() {
 
     }
 
-    public TestPerson(String name, int id) {
+    public Person(String name, int id) {
         this.name = name;
         this.id = id;
     }

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nbokare.moneymanager.dao.TestPersonDaoImpl;
-import com.nbokare.moneymanager.model.TestPerson;
+import com.nbokare.moneymanager.model.Person;
 
 @Service
 public class TestService {
@@ -21,7 +21,7 @@ public class TestService {
                 .println("**************************** service initialized *************************************");
     }
 
-    public TestPerson create(TestPerson person) {
+    public Person create(Person person) {
         System.out.println("Creating person : " + person);
         int id = person.getId();
         dao.save(person);
@@ -30,7 +30,7 @@ public class TestService {
         // return dao.getPerson(id);
     }
 
-    public TestPerson update(TestPerson person) {
+    public Person update(Person person) {
         if (person == null) {
             System.out.println("null person passed to update");
             return null;
@@ -38,7 +38,7 @@ public class TestService {
 
         int id = person.getId();
         System.out.println("Updating person : " + id);
-        TestPerson existingPerson = dao.getPerson(id);
+        Person existingPerson = dao.getPerson(id);
 
         if (existingPerson == null) {
             System.out.println("Person with ID " + id + " does not exist.");
@@ -50,15 +50,15 @@ public class TestService {
         // return dao.getPerson(id);
     }
 
-    public List<TestPerson> getPersons() {
+    public List<Person> getPersons() {
         System.out
                 .println("******************** In service - Fetching persons.");
         return dao.getPersons();
         // return null;
     }
 
-    public TestPerson getPerson(int id) {
-        TestPerson person = dao.getPerson(id);
+    public Person getPerson(int id) {
+        Person person = dao.getPerson(id);
 
         if (person == null) {
             System.out.println("Invalid ID " + id);

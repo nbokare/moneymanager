@@ -10,7 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.nbokare.moneymanager.model.TestPerson;
+import com.nbokare.moneymanager.model.Person;
 
 @Repository
 public class TestPersonDaoImpl {
@@ -31,18 +31,18 @@ public class TestPersonDaoImpl {
     }
 
     @Transactional
-    public List<TestPerson> getPersons() {
+    public List<Person> getPersons() {
 
         // List persons = sessionFactoryBean.getObject().getCurrentSession()
         // .createQuery("from TestPerson").list();
 
         List persons = sessionFactory.getCurrentSession()
-                .createQuery("from TestPerson").list();
+                .createQuery("from Person").list();
 
-        List<TestPerson> list = new ArrayList<TestPerson>();
+        List<Person> list = new ArrayList<Person>();
         for (Object object : persons) {
-            if (object instanceof TestPerson) {
-                TestPerson person = (TestPerson) object;
+            if (object instanceof Person) {
+                Person person = (Person) object;
                 list.add(person);
                 System.out.println("**************** Person - "
                         + person.toString());
@@ -54,22 +54,22 @@ public class TestPersonDaoImpl {
     }
 
     @Transactional
-    public TestPerson getPerson(int id) {
+    public Person getPerson(int id) {
 
         // List persons = sessionFactoryBean.getObject().getCurrentSession()
         // .createQuery("from TestPerson").list();
 
-        return (TestPerson) sessionFactory.getCurrentSession().get(
-                TestPerson.class, id);
+        return (Person) sessionFactory.getCurrentSession().get(
+                Person.class, id);
     }
 
     @Transactional
-    public void save(TestPerson person) {
+    public void save(Person person) {
         sessionFactory.getCurrentSession().save(person);
     }
 
     @Transactional
-    public void update(TestPerson person) {
+    public void update(Person person) {
         sessionFactory.getCurrentSession().update(person);
     }
 }
