@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.nbokare.moneymanager.model.Person;
 
 @Repository
-public class TestPersonDaoImpl {
+public class PersonDaoImpl {
 
     @Autowired
     SessionFactory sessionFactory;

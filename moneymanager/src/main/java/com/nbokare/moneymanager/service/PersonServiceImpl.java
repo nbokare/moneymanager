@@ -7,13 +7,13 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nbokare.moneymanager.dao.TestPersonDaoImpl;
+import com.nbokare.moneymanager.dao.PersonDaoImpl;
 import com.nbokare.moneymanager.model.Person;
 
 @Service
-public class TestService {
+public class PersonServiceImpl {
     @Autowired
-    TestPersonDaoImpl dao;
+    PersonDaoImpl dao;
 
     @PostConstruct
     public void init() {

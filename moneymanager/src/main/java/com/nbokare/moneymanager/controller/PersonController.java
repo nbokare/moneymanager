@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.nbokare.moneymanager.model.Person;
-import com.nbokare.moneymanager.service.TestService;
+import com.nbokare.moneymanager.service.PersonServiceImpl;
 
 @Controller
 @RequestMapping("/testing")
-public class TestController {
+public class PersonController {
     @Autowired
-    TestService testService;
+    PersonServiceImpl testService;
 
     @PostConstruct
     public void init() {
