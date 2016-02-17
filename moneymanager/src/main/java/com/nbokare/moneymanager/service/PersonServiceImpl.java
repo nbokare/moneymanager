@@ -23,7 +23,8 @@ public class PersonServiceImpl {
 
     public Person create(Person person) {
         System.out.println("Creating person : " + person);
-        int id = person.getId();
+        int id = dao.getMaxId() + 1;
+        person.setId(id);
         dao.save(person);
 
         return dao.getPerson(id);
@@ -66,5 +67,9 @@ public class PersonServiceImpl {
         } else {
             return person;
         }
+    }
+
+    public long getMaxId() {
+        return dao.getMaxId();
     }
 }

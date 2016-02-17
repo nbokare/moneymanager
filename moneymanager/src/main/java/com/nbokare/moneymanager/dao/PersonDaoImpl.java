@@ -72,4 +72,10 @@ public class PersonDaoImpl {
     public void update(Person person) {
         sessionFactory.getCurrentSession().update(person);
     }
+
+    @Transactional
+    public int getMaxId() {
+        return (Integer) sessionFactory.getCurrentSession()
+                .createQuery("select max(id) from Person").list().get(0);
+    }
 }

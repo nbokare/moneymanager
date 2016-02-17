@@ -60,6 +60,13 @@ public class PersonController {
         return testService.update(person);
     }
 
+    @RequestMapping(method = RequestMethod.GET, path = "/personsmaxid")
+    @ResponseBody
+    public long getMaxId() {
+        System.out.println("******************** in update **************");
+        return testService.getMaxId();
+    }
+
     // @RequestMapping(method = RequestMethod.GET, value = "/getstring")
     // @ResponseBody
     // public String testing() {
