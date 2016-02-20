@@ -1,4 +1,4 @@
-package com.nbokare.moneymanager.model;
+package com.nbokare.moneymanager.person.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.nbokare.moneymanager.dao;
+package com.nbokare.moneymanager.person.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.nbokare.moneymanager.model.Person;
+import com.nbokare.moneymanager.person.model.Person;
 
 @Repository
 public class PersonDaoImpl {

@@ -58,7 +58,7 @@
         <property name="dataSource" ref="dataSource" />
         <property name="annotatedClasses">
             <list>
-                <value>com.nbokare.moneymanager.model.Person</value>
+                <value>com.nbokare.moneymanager.person.model.Person</value>
             </list>
         </property>
         <property name="hibernateProperties">

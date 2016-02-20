@@ -1,4 +1,4 @@
-package com.nbokare.moneymanager.controller;
+package com.nbokare.moneymanager.person.controller;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.nbokare.moneymanager.model.Person;
-import com.nbokare.moneymanager.service.PersonServiceImpl;
+import com.nbokare.moneymanager.person.model.Person;
+import com.nbokare.moneymanager.person.service.PersonServiceImpl;
 
 @Controller
 @RequestMapping("/testing")

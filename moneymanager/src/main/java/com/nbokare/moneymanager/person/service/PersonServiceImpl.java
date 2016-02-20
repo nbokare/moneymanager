@@ -1,4 +1,4 @@
-package com.nbokare.moneymanager.service;
+package com.nbokare.moneymanager.person.service;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nbokare.moneymanager.dao.PersonDaoImpl;
-import com.nbokare.moneymanager.model.Person;
+import com.nbokare.moneymanager.person.dao.PersonDaoImpl;
+import com.nbokare.moneymanager.person.model.Person;
 
 @Service
 public class PersonServiceImpl {
