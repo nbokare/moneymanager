@@ -6,14 +6,17 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.nbokare.moneymanager.person.controller.PersonController;
 import com.nbokare.moneymanager.person.model.Person;
 
 @Repository
 public class PersonDaoImpl {
+	public static final Logger logger = Logger.getLogger(PersonController.class);
 
     @Autowired
     SessionFactory sessionFactory;
@@ -26,8 +29,7 @@ public class PersonDaoImpl {
 
     @PostConstruct
     public void init() {
-        System.out
-                .println("**************************** initialized DAO *************************************");
+		logger.debug("**************************** initialized DAO *************************************");
     }
 
     @Transactional

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,59 +19,55 @@ import com.nbokare.moneymanager.person.service.PersonServiceImpl;
 @Controller
 @RequestMapping("/testing")
 public class PersonController {
-    @Autowired
-    PersonServiceImpl testService;
+	public static final Logger logger = Logger.getLogger(PersonController.class);
 
-    @PostConstruct
-    public void init() {
-        System.out.println("******************** initing **************");
+	@Autowired
+	PersonServiceImpl testService;
 
-        System.out.println("******************** Classpath - "
-                + System.getProperty("java.class.path"));
+	@PostConstruct
+	public void init() {
+		logger.debug("********************* initilizing controller *********************");
+	}
 
-        System.out.println("******************** Properties - "
-                + System.getProperties());
-    }
+	@RequestMapping(method = RequestMethod.GET, path = "/persons/{id}")
+	@ResponseBody
+	public Person get(@PathVariable int id) {
+		logger.debug("******************** in get **************");
+		return testService.getPerson(id);
+	}
 
-    @RequestMapping(method = RequestMethod.GET, path = "/persons/{id}")
-    @ResponseBody
-    public Person get(@PathVariable int id) {
-        System.out.println("******************** in get **************");
-        return testService.getPerson(id);
-    }
+	@RequestMapping(method = RequestMethod.GET, path = "/persons")
+	@ResponseBody
+	public List<Person> list() {
+		logger.debug("******************** in list **************");
+		return testService.getPersons();
+	}
 
-    @RequestMapping(method = RequestMethod.GET, path = "/persons")
-    @ResponseBody
-    public List<Person> list() {
-        System.out.println("******************** in list **************");
-        return testService.getPersons();
-    }
+	@RequestMapping(method = RequestMethod.POST, path = "/persons")
+	@ResponseBody
+	public Person create(@RequestBody Person person) {
+		logger.debug("******************** in create **************");
+		return testService.create(person);
+	}
 
-    @RequestMapping(method = RequestMethod.POST, path = "/persons")
-    @ResponseBody
-    public Person create(@RequestBody Person person) {
-        System.out.println("******************** in create **************");
-        return testService.create(person);
-    }
+	@RequestMapping(method = RequestMethod.PUT, path = "/persons/{id}")
+	@ResponseBody
+	public Person update(@RequestBody Person person) {
+		logger.debug("******************** in update **************");
+		return testService.update(person);
+	}
 
-    @RequestMapping(method = RequestMethod.PUT, path = "/persons/{id}")
-    @ResponseBody
-    public Person update(@RequestBody Person person) {
-        System.out.println("******************** in update **************");
-        return testService.update(person);
-    }
+	@RequestMapping(method = RequestMethod.GET, path = "/personsmaxid")
+	@ResponseBody
+	public long getMaxId() {
+		logger.debug("******************** in update **************");
+		return testService.getMaxId();
+	}
 
-    @RequestMapping(method = RequestMethod.GET, path = "/personsmaxid")
-    @ResponseBody
-    public long getMaxId() {
-        System.out.println("******************** in update **************");
-        return testService.getMaxId();
-    }
-
-    // @RequestMapping(method = RequestMethod.GET, value = "/getstring")
-    // @ResponseBody
-    // public String testing() {
-    // System.out.println("******************** in testing **************");
-    // return "{name:Nikhil,id:1}";
-    // }
+	@RequestMapping(method = RequestMethod.GET, value = "/getstring")
+	@ResponseBody
+	public String testing() {
+		logger.debug("******************** in testing **************");
+		return "{name:Nikhil,id:1}";
+	}
 }

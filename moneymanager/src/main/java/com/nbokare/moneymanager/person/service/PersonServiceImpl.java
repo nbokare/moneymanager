@@ -4,25 +4,28 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.nbokare.moneymanager.person.controller.PersonController;
 import com.nbokare.moneymanager.person.dao.PersonDaoImpl;
 import com.nbokare.moneymanager.person.model.Person;
 
 @Service
 public class PersonServiceImpl {
-    @Autowired
+	public static final Logger logger = Logger.getLogger(PersonController.class);
+
+	@Autowired
     PersonDaoImpl dao;
 
     @PostConstruct
     public void init() {
-        System.out
-                .println("**************************** service initialized *************************************");
+		logger.debug("**************************** service initialized *************************************");
     }
 
     public Person create(Person person) {
-        System.out.println("Creating person : " + person);
+		logger.debug("Creating person : " + person);
         int id = dao.getMaxId() + 1;
         person.setId(id);
         dao.save(person);
@@ -33,16 +36,16 @@ public class PersonServiceImpl {
 
     public Person update(Person person) {
         if (person == null) {
-            System.out.println("null person passed to update");
+			logger.debug("null person passed to update");
             return null;
         }
 
         int id = person.getId();
-        System.out.println("Updating person : " + id);
+		logger.debug("Updating person : " + id);
         Person existingPerson = dao.getPerson(id);
 
         if (existingPerson == null) {
-            System.out.println("Person with ID " + id + " does not exist.");
+			logger.debug("Person with ID " + id + " does not exist.");
             return null;
         }
         dao.update(person);
@@ -52,8 +55,7 @@ public class PersonServiceImpl {
     }
 
     public List<Person> getPersons() {
-        System.out
-                .println("******************** In service - Fetching persons.");
+		logger.debug("******************** In service - Fetching persons.");
         return dao.getPersons();
         // return null;
     }
@@ -62,7 +64,7 @@ public class PersonServiceImpl {
         Person person = dao.getPerson(id);
 
         if (person == null) {
-            System.out.println("Invalid ID " + id);
+			logger.debug("Invalid ID " + id);
             return null;
         } else {
             return person;
